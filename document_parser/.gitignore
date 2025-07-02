@@ -1,0 +1,28 @@
+# === Terraform ===
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+
+# === Binaries ===
+*.exe
+*.zip
+*.tar.gz
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+.env
+.venv/
+*.egg-info/
+
+# === VSCode ===
+.vscode/
+
+# === System files ===
+.DS_Store
+Thumbs.db
