@@ -1,28 +1,37 @@
-# === Terraform ===
-.terraform/
-*.tfstate
-*.tfstate.*
-crash.log
-*.tfvars
-
-# === Binaries ===
-*.exe
-*.zip
-*.tar.gz
-
-# === Python ===
+# Python cache
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-env/
+
+# Environment
 .env
-.venv/
-*.egg-info/
+*.env
 
-# === VSCode ===
+# IDE / Editor files
 .vscode/
+*.swp
 
-# === System files ===
+# Terraform state & secrets
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+
+# Vector index & serialized vectorstore
+backend/rag_chatbot/vector_store/index.faiss
+backend/rag_chatbot/vector_store/index.pkl
+backend/rag_chatbot/vector_store.pkl
+
+# Optional: exclude vector store from previous runs
+vector_store.pkl
+
+# Project archives
+project.zip
+
+# Logs or temp files
+*.log
+*.tmp
+
+# OS-specific
 .DS_Store
 Thumbs.db

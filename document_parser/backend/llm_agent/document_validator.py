@@ -3,10 +3,11 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def validate_document_fields(data):
-    prompt =  f"""
+    prompt = f"""
     You are a document validation assistant.
 
     This document has the following extracted fields:
@@ -19,12 +20,12 @@ def validate_document_fields(data):
     4. Suggest corrections or enhancements if any.
 
     Respond in a helpful, structured way.
-   """
+    """
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
+    response = client.chat.completions.create(
+        model="gpt-4o",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
     )
 
-    return response['choices'][0]['message']['content']
+    return response.choices[0].message.content
